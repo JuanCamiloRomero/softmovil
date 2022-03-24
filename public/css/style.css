@@ -1,0 +1,9 @@
+.table-search-form .form-control{
+  height: 2.3rem;
+  min-width: 1rem;
+}
+
+.table-search-form .form-select{
+  height: 2.25rem;
+  min-width: 1rem;
+}

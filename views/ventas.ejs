@@ -1,0 +1,299 @@
+<%
+let codigo_venta = 1
+if(ventas.length>0){
+  codigo_venta = ventas[0].codigo_venta+1
+}
+%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Tienda Generica - Modulo Ventas</title>
+
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Tienda Generica - Modulo Usuarios">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!-- FontAwesome JS-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+  <!-- App CSS -->
+  <link id="theme-style" rel="stylesheet" href="css/portal.css">
+  <link id="theme-style" rel="stylesheet" href="css/style.css">
+  <style>
+    .form-control{
+      border: solid 1px #a5a5a5;
+      color: #000
+    }
+  </style>
+</head>
+
+<body class="app">
+  <!-- Header / Navbar Include -->
+  <%- include('templates/navbar.ejs') %>
+  <div class="app-wrapper">
+
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+      <div class="container-xl">
+
+        <div class="app-card app-card-orders-table shadow-sm mb-5">
+          <div class="container-fluid px-4 py-2">	
+            <div class="row">
+              <h3>Modulo Ventas</h3>
+            </div>
+          
+            <div class="row">
+              <div class="col-12">
+                <form id="buscarCliente">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Cedula de cliente" aria-label="Cedula de cliente" id="cedulaCliente">
+                    <button class="input-group-text btn btn-success text-white">Buscar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+                  
+              <div class="row mt-2 panelVentas">
+                <div class="col-sm-6">
+                  <div>
+                    <span id="nombreCliente" class="text-600 text-110 text-blue align-middle"></span>
+                  </div>
+                  <div class="text-grey-m2">
+                    <div id="direccionCliente" class="my-1"></div>
+                    <div id="emailCliente" class="my-1"></div>
+                    <div id="telefonoCliente" class="my-1"></div>
+                  </div>
+                </div>
+
+                <div class="text-95 col-sm-6 align-self-start d-sm-flex justify-content-end">
+
+                  <div class="text-grey-m2 d-none panelVentas">
+                    <div class="text-600 text-110 text-blue align-middl">
+                      Codigo Venta : <span><%= codigo_venta %></span>
+                    </div>
+                  </div>
+                </div>
+                  
+              </div>
+
+              <div class="row mt-4 d-none panelVentas">
+                <form id="formularioVenta" action="/ventas/crear" method="post">
+                  <input type="hidden" name="codigoVenta" id="codigoVenta" value="<%= codigo_venta %>">
+                  <input type="hidden" name="cedulaCliente" id="cedula">
+                  <input type="hidden" name="ivaVenta" id="iva">
+                  <input type="hidden" name="totalVenta" id="subtotal">
+                  <input type="hidden" name="valorVenta" id="total">
+                  <div class="table-responsive">
+                    <table class="table table-borderless">
+                      <thead class="">
+                        <tr class="">
+                          <th>Codigo</th>
+                          <th>Nombre</th>
+                          <th>Cantidad</th>
+                          <th>Valor</th>
+                        </tr>
+                      </thead>
+    
+                      <tbody class="text-95 text-secondary-d3">
+                        <!-- Producto 1 -->
+                        <tr class="">
+                          <td width="20%">
+                            <input type="text" name="codp1" class="form-control codigoProducto">
+                            <input type="hidden" name="idp1" class="form-control">
+                          </td>
+                          <td>
+                            <input type="text" readonly class="form-control nombreProducto">
+                          </td>
+                          <td width="10%">
+                            <input type="number" name="canp1" class="form-control cantidadProducto">
+                          </td>
+                            <td class="text-end" width="15%">
+                            <input type="text" name="valp1" readonly class="form-control text-end valorProducto">
+                          </td>
+                        </tr> 
+                        <!-- Producto 2 -->
+                        <tr>
+                          <td width="20%">
+                            <input type="text" name="codp2" class="form-control codigoProducto">
+                            <input type="hidden" name="idp2" class="form-control">
+                          </td>
+                          <td>
+                            <input type="text" readonly class="form-control nombreProducto">
+                          </td>
+                          <td width="10%">
+                            <input type="number" name="canp2" class="form-control cantidadProducto">
+                          </td>
+                            <td class="text-end" width="15%">
+                            <input type="text" name="valp2" readonly class="form-control text-end valorProducto">
+                          </td>
+                        </tr> 
+                        <!-- Producto 3 -->
+                        <tr>
+                          <td width="20%">
+                            <input type="text" name="codp3" class="form-control codigoProducto">
+                            <input type="hidden" name="idp3" class="form-control">
+                          </td>
+                          <td>
+                            <input type="text" readonly class="form-control nombreProducto">
+                          </td>
+                          <td width="10%">
+                            <input type="number" name="canp3" class="form-control cantidadProducto">
+                          </td>
+                            <td class="text-end" width="15%">
+                            <input type="text" name="valp3" readonly class="form-control text-end valorProducto">
+                          </td>
+                        </tr> 
+                      </tbody>
+                        <tfoot>
+                          <tr>
+                            <th class="text-end" colspan="3">Subtotal</th>
+                            <th class="text-end subTotal"></th>
+                          </tr>
+                          <tr>
+                            <th class="text-end" colspan="3">IVA</th>
+                            <th class="text-end valorIVA"></th>
+                          </tr>
+                          <tr>
+                            <th class="text-end" colspan="3">Total</th>
+                            <th class="text-end valorTotal"></th>
+                          </tr>
+                        </tfoot>
+                    </table>
+                  </div>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-success text-white" type="submit">Realizar Venta</button>
+                </div>
+              </form>
+            </div>            
+          </div>
+        </div><!--//app-card-->
+
+
+
+      </div><!--//container-fluid-->
+    </div><!--//app-content-->
+
+    <footer class="app-footer">
+      <div class="container text-center py-3">
+
+      </div>
+    </footer><!--//app-footer-->
+
+  </div><!--//app-wrapper-->
+
+  
+
+<!-- Javascript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<!-- Page Specific JS -->
+<script src="js/app.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+$(document).ready(function(){
+	$('.valorProducto').val(0);
+	$('.valorProducto').attr("value",0);
+	//Funcion consultar cliente
+	$("#buscarCliente").submit(function(e){
+
+		e.preventDefault();
+		var id = $("#cedulaCliente").val();
+		$.ajax({
+			type:"post",
+	   	url:"/clientes?search="+id,
+			data: "search="+id,
+			dataType:"json",
+			success: function(resultado){
+				if(!resultado.clientes.length){
+          $("#cedula, #nombreCliente, #direccionCliente, #emailCliente, #telefonoCliente").html("");
+					$(".panelVentas").hide();
+					alert("Ocurrio un error");
+        }else{
+          $("#cedula").val(resultado.clientes[0].cedula_cliente);
+					$("#nombreCliente").html(resultado.clientes[0].nombre_cliente);
+					$("#direccionCliente").html(resultado.clientes[0].direccion_cliente);
+					$("#emailCliente").html(resultado.clientes[0].email_cliente);
+					$("#telefonoCliente").html(resultado.clientes[0].telefono_cliente);
+					$(".panelVentas").removeClass("d-none").show();
+        }
+			}
+		});
+	})
+	
+	//Funcion buscar producto
+	$(".codigoProducto").blur(function(e){
+		e.stopPropagation();
+		var td = $(this);
+		var id = $(this).val();
+		$.ajax({
+			type:"post",
+	   	url:"productos?search="+id,
+			data: "search="+id,
+			dataType:"json",
+			success: function(resultado){
+				if(!resultado.productos.length){
+					td.val("");
+					td.attr("value", "");
+					alert("Ocurrio un error");
+					td.parent().next().children().val("");
+					td.parent().next().next().next().children().val(0);
+					td.parent().next().next().next().children().attr(0);
+				}else{
+          td.next().val(resultado.productos[0]._id)
+          td.parent().next().children().val(resultado.productos[0].nombre_producto);
+					td.parent().next().next().next().children().val(resultado.productos[0].precio_venta);
+					td.parent().next().next().next().children().attr("data-value",resultado.productos[0].precio_venta);
+					td.parent().next().next().next().children().attr("data-iva",resultado.productos[0].iva_compra);
+					
+				}
+			}
+		});
+	})
+	
+	//Funcion calcular valor cantidad
+	$(".cantidadProducto").blur(function(e){
+		e.stopPropagation();
+		var td = $(this);
+		var cantidad = parseFloat($(this).val());
+		var precio = td.parent().next().children().attr("data-value");
+		if(isNaN(precio)) {
+			var precio = 0;
+		}
+		var total = cantidad*precio;
+		td.parent().next().children().attr("value", total);
+		td.parent().next().children().val(total);
+		calcularTotal();
+	})
+	
+	function calcularTotal(){
+		var subtotal = 0;
+		var iva = 0;
+		$('.valorProducto').each(function(){
+		    subtotal += parseFloat($(this).attr("value"));
+			if(isNaN(parseFloat($(this).attr("data-iva")))) {
+				iva += 0;
+			}else{
+				iva += parseFloat($(this).attr("data-iva"))*parseFloat($(this).attr("value"))/100;
+			}
+		});
+		$(".subTotal").html(subtotal);
+		var valorIva = (iva);
+		$(".valorIVA").html(valorIva);
+		$(".valorTotal").html(subtotal+valorIva);
+		//Pasar datos a formulario
+		$("#subtotal").val(subtotal);
+		$("#iva").val(valorIva);
+		$("#total").val(subtotal+valorIva);
+	}
+	
+});
+</script>
+</body>
+</html>
+

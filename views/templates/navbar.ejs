@@ -1,0 +1,106 @@
+<header class="app-header fixed-top">
+  <div class="app-header-inner">
+    <div class="container-fluid py-2">
+      <div class="app-header-content">
+        <div class="row justify-content-between align-items-center">
+          <div class="search-mobile-trigger d-sm-none col">
+            <i class="search-mobile-trigger-icon fas fa-search"></i>
+          </div><!--//col-->
+          <div class="col-auto">
+            <a id="sidepanel-toggler" class="sidepanel-toggler d-inline-block d-xl-none" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" role="img"><title>Menu</title><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg>
+            </a>
+          </div><!--//col-->
+
+          <div class="app-utilities col-auto">
+            <div class="app-utility-item app-user-dropdown dropdown">
+              <a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img src="images/user-solid.svg" alt="user profile"></a>
+              <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
+                <li><a class="dropdown-item" href="./">Salir</a></li>
+              </ul>
+            </div><!--//app-user-dropdown-->
+          </div><!--//app-utilities-->
+        </div><!--//row-->
+      </div><!--//app-header-content-->
+    </div><!--//container-fluid-->
+  </div><!--//app-header-inner-->
+
+  <div id="app-sidepanel" class="app-sidepanel sidepanel-hidden">
+    <div id="sidepanel-drop" class="sidepanel-drop"></div>
+      <div class="sidepanel-inner d-flex flex-column">
+        <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
+        <div class="app-branding">
+          <a class="app-logo" href="#"><span class="logo-text">Softmovil</span></a>
+
+        </div><!--//app-branding-->
+        <nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
+          <ul class="app-menu list-unstyled accordion" id="menu-accordion">
+            <li class="nav-item">
+              <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+              <a class="nav-link" href="/index">
+                <span class="nav-icon">
+                  <i class="fas fa-home fa-lg mt-2 text-primary"></i>
+                </span>
+                <span class="nav-link-text">Inicio</span>
+              </a><!--//nav-link-->
+            </li><!--//nav-item-->
+            <li class="nav-item">
+              <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+              <a class="nav-link" href="/usuarios">
+                <span class="nav-icon">
+                  <i class="fas fa-users fa-lg mt-2 text-primary"></i>
+                </span>
+                <span class="nav-link-text">Usuarios</span>
+              </a><!--//nav-link-->
+            </li><!--//nav-item-->
+            <li class="nav-item">
+              <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+              <a class="nav-link" href="/clientes">
+                <span class="nav-icon">
+                  <i class="fas fa-user-friends fa-lg mt-2 text-primary"></i>
+                </span>
+                <span class="nav-link-text">Clientes</span>
+              </a><!--//nav-link-->
+            </li><!--//nav-item-->
+            <li class="nav-item">
+              <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+              <a class="nav-link" href="/productos">
+                <span class="nav-icon">
+                  <i class="fas fa-gifts fa-lg mt-2 text-primary"></i>
+                </span>
+                <span class="nav-link-text">Productos</span>
+              </a><!--//nav-link-->
+            </li><!--//nav-item-->
+            <li class="nav-item">
+              <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+              <a class="nav-link" href="/proveedores">
+                <span class="nav-icon">
+                  <i class="fas fa-building fa-lg mt-2 text-primary"></i>
+                </span>
+                <span class="nav-link-text">Proveedores</span>
+              </a><!--//nav-link-->
+            </li><!--//nav-item-->
+            <li class="nav-item">
+              <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+              <a class="nav-link" href="/ventas">
+                <span class="nav-icon">
+                  <i class="fas fa-cart-plus fa-lg mt-2 text-primary"></i>
+                </span>
+                <span class="nav-link-text">Ventas</span>
+              </a><!--//nav-link-->
+            </li><!--//nav-item-->
+            <li class="nav-item">
+              <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+              <a class="nav-link" href="/reportesTotal">
+                <span class="nav-icon">
+                  <i class="fas fa-file-alt fa-lg mt-2 text-primary"></i>
+                </span>
+                <span class="nav-link-text">Reporte Total</span>
+              </a><!--//nav-link-->
+            </li><!--//nav-item-->
+          </ul>
+        </nav>
+      </div><!--//app-sidepanel-footer-->
+    </div><!--//sidepanel-inner-->
+  </div><!--//app-sidepanel-->
+</header><!--//app-header-->
